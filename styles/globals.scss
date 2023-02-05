@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+$top_mount: (0, 28, 56, 84, 112);
+@each $top in $top_mount {
+  .top--#{$top} {
+    top: -#{$top}px;
+  }
+}
