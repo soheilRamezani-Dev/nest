@@ -20,7 +20,7 @@ const DropDown = ({ defaultValueIndex, values }: DropDownProps) => {
       onMouseLeave={() => {
         setIsOpen(false);
       }}
-      className="border-r px-4 relative cursor-pointer"
+      className="px-4 relative cursor-pointer"
     >
       <div>
         {selectedItem}

@@ -11,30 +11,36 @@ const TopBar = () => {
       </div>
 
       {/* more than md screen top nav-menu */}
-      <div className=" border-b hidden md:block xl:flex xl:justify-between">
-        {/* navbar */}
-        <TopBarNav />
+      <div className=" border-b">
+        <div className="max-w-7xl mx-auto hidden md:block xl:flex xl:justify-between">
+          {/* navbar */}
+          <TopBarNav />
 
-        {/* trend news slider */}
-        <TopBarNewsSlider />
+          {/* trend news slider */}
+          <TopBarNewsSlider />
 
-        {/* top info  phone number , language , currency */}
-        <div className="text-sm flex justify-center mb-2 xl:mt-2">
-          <div className="border-r px-4 ">
-            Need help? Call Us:{" "}
-            <a className="text-green-600" href="tel:123-456-789">
-              123-456-789
-            </a>
+          {/* top info  phone number , language , currency */}
+          <div className="text-sm flex justify-center mb-2 xl:mt-2">
+            <div className="border-r px-4 ">
+              Need help? Call Us:{" "}
+              <a className="text-green-600" href="tel:123-456-789">
+                123-456-789
+              </a>
+            </div>
+
+            <div className="border-r">
+              <DropDown
+                defaultValueIndex={0}
+                values={["English", "Français", "Deutsch", "Pусский"]}
+              />
+            </div>
+            <div>
+              <DropDown
+                defaultValueIndex={0}
+                values={["INR", "USD", "MBP", "EU"]}
+              />
+            </div>
           </div>
-
-          <DropDown
-            defaultValueIndex={0}
-            values={["English", "Français", "Deutsch", "Pусский"]}
-          />
-          <DropDown
-            defaultValueIndex={0}
-            values={["INR", "USD", "MBP", "EU"]}
-          />
         </div>
       </div>
     </div>

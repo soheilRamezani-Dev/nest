@@ -18,7 +18,7 @@ const TopBarNewsSlider = () => {
   }, [activenew]);
 
   return (
-    <div className="h-8 overflow-hidden relative min-w-30">
+    <div className="h-8 overflow-hidden relative min-w-30 top-1">
       <ul
         className={`text-green-600 mx-auto inset-x-0 text-sm font-bold flex flex-col transition-all absolute top--${
           activenew * 28
