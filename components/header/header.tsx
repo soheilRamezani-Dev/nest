@@ -1,3 +1,4 @@
+import MainHeader from "./mainHeader/mainHeader";
 import TopBar from "./topBar/topBar";
 
 const Header = () => {
@@ -5,7 +6,10 @@ const Header = () => {
     <header className=" m-1.5">
       {/* top nav */}
       <TopBar />
+
       {/* main header nav */}
+      <MainHeader />
+
       {/* menu nav */}
     </header>
   );
