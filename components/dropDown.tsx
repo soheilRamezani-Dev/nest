@@ -27,10 +27,10 @@ const DropDown = ({ defaultValueIndex, values }: DropDownProps) => {
         <RiArrowDropDownLine className="inline-block w-6 h-6" />
       </div>
       <ul
-        className={`absolute overflow-hidden bg-white left-2 ${
+        className={`absolute overflow-hidden bg-white left-2 z-10 ${
           isOpen
             ? "max-h-40 border py-1 transition-all duration-500 ease-in-out"
-            : "max-h-0 delay-300"
+            : "max-h-0 delay-150"
         }`}
       >
         {items.map((item: string, index: number) => (

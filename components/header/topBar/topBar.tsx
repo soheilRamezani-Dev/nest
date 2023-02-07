@@ -12,7 +12,7 @@ const TopBar = () => {
 
       {/* more than md screen top nav-menu */}
       <div className=" border-b">
-        <div className="max-w-7xl mx-auto hidden md:block xl:flex xl:justify-between">
+        <div className="max-w-8xl mx-auto hidden md:block xl:flex xl:justify-between">
           {/* navbar */}
           <TopBarNav />
 

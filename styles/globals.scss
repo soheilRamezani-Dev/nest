@@ -8,3 +8,12 @@ $top_mount: (0, 28, 56, 84, 112);
     top: -#{$top}px;
   }
 }
+.mobile-menu-item {
+  @apply cursor-pointer grow text-center rounded bg-gray-100 p-2 text-gray-700;
+}
+.active-mobile-menu-item {
+  @apply cursor-pointer grow text-center rounded p-2 bg-orange-200 text-green-600;
+}
+.social-media-icon {
+  @apply bg-green-600 text-white w-7 h-7 p-2 rounded-full;
+}

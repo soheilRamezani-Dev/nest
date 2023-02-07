@@ -10,7 +10,9 @@ const AccountMenuItem = ({
   return (
     <>
       <Icon className="inline w-7 h-7" />
-      <span className="px-2 text-gray-500 hidden lg:inline">{title}</span>
+      <span className="px-2 text-gray-500 hidden lg:inline leading-7">
+        {title}
+      </span>
     </>
   );
 };
