@@ -1,4 +1,5 @@
 import MainHeader from "./mainHeader/mainHeader";
+import ThirdMenu from "./thirdMenu/thirdMenu";
 import TopBar from "./topBar/topBar";
 
 const Header = () => {
@@ -10,7 +11,8 @@ const Header = () => {
       {/* main header nav */}
       <MainHeader />
 
-      {/* menu nav */}
+      {/* menu nav : this menu showing just in desktop*/}
+      <ThirdMenu />
     </header>
   );
 };

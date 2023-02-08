@@ -49,11 +49,10 @@ const MainHeader = () => {
         {/* right */}
         <div className="text-gray-700 flex items-center justify-between my-3 grow">
           {/* search */}
-          <div className="flex border border-green-500 p-1 rounded grow w-full mx-auto">
+          <div className="flex border border-green-500 p-1 rounded grow w-full mx-auto xl:max-w-xl">
             <input
-              disabled
               placeholder="Search for products"
-              className="outline-none text-sm w-full cursor-pointer grow px-3 disabl"
+              className="outline-none text-sm w-full cursor-pointer grow px-3"
               type="text"
             />
             <button className="bg-green-600 text-white px-6 py-2 relative">

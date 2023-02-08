@@ -10,17 +10,19 @@ import {
 } from "react-icons/fa";
 import { forwardRef, useImperativeHandle, useState } from "react";
 import SubMenuItem from "../subMenuItem";
+import type { Menu, MenuItem } from "../../types";
 
 export type Ref = {
   toggleMobileMenu: () => void;
 };
 const MobileMenu = forwardRef<Ref, any>((_, ref) => {
-  const menus_api = [
+  const menus_api: Menu[] = [
     {
       id: "1",
       title: "menu",
       children: [
         {
+          id: "1",
           title: "Home",
           url: "/",
           children: [
@@ -29,8 +31,9 @@ const MobileMenu = forwardRef<Ref, any>((_, ref) => {
             { title: "Home3", url: "/" },
           ],
         },
-        { title: "About", url: "/" },
+        { id: "1", title: "About", url: "/" },
         {
+          id: "1",
           title: "shop",
           url: "/",
           children: [
@@ -39,34 +42,34 @@ const MobileMenu = forwardRef<Ref, any>((_, ref) => {
             { title: "Shop3", url: "/" },
           ],
         },
-        { title: "vendors", url: "/" },
-        { title: "Mega Menu", url: "/" },
+        { id: "1", title: "vendors", url: "/" },
+        { id: "1", title: "Mega Menu", url: "/" },
         {
+          id: "1",
           title: "Blog",
           url: "/",
           children: [
             { title: "Blog1", url: "/" },
-            ,
             { title: "Blog2", url: "/" },
             { title: "Blog2", url: "/" },
           ],
         },
-        { title: "pages", url: "/" },
-        { title: "contact", url: "/" },
+        { id: "1", title: "pages", url: "/" },
+        { id: "1", title: "contact", url: "/" },
       ],
     },
     {
       id: "2",
       title: "category",
       children: [
-        { title: "Bread and Juice", url: "/" },
-        { title: "Baking material", url: "/" },
-        { title: "Clothing & beauty", url: "/" },
-        { title: "Deals Of The Day", url: "/" },
-        { title: "Fresh Seafood", url: "/" },
-        { title: "Milks and Dairies", url: "/" },
-        { title: "Uncategorized", url: "/" },
-        { title: "Vegetables", url: "/" },
+        { id: "1", title: "Bread and Juice", url: "/" },
+        { id: "1", title: "Baking material", url: "/" },
+        { id: "1", title: "Clothing & beauty", url: "/" },
+        { id: "1", title: "Deals Of The Day", url: "/" },
+        { id: "1", title: "Fresh Seafood", url: "/" },
+        { id: "1", title: "Milks and Dairies", url: "/" },
+        { id: "1", title: "Uncategorized", url: "/" },
+        { id: "1", title: "Vegetables", url: "/" },
       ],
     },
   ];
@@ -128,7 +131,7 @@ const MobileMenu = forwardRef<Ref, any>((_, ref) => {
             <ul>
               {menus_api
                 .find((vlaue) => vlaue.id === activeMenu)
-                ?.children.map((activemenueItem) => (
+                ?.children?.map((activemenueItem) => (
                   <SubMenuItem activemenueItem={activemenueItem} />
                 ))}
             </ul>

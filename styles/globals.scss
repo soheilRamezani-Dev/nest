@@ -8,6 +8,9 @@ $top_mount: (0, 28, 56, 84, 112);
     top: -#{$top}px;
   }
 }
+html {
+  @apply overflow-hidden;
+}
 .mobile-menu-item {
   @apply cursor-pointer grow text-center rounded bg-gray-100 p-2 text-gray-700;
 }
