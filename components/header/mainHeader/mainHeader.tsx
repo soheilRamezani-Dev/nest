@@ -16,6 +16,7 @@ const MainHeader = ({ menuIconOnClick }: { menuIconOnClick: () => void }) => {
         <div className="flex justify-between mx-2">
           <div className="w-32">
             <Image
+              priority
               src="/images/logo.svg"
               width={200}
               height={60}

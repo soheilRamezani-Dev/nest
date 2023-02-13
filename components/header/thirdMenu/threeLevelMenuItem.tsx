@@ -52,6 +52,8 @@ const ThreeLevelMenuItem = ({ mainItem }: { mainItem: MenuItem }) => {
               width={300}
               height={300}
               alt={`${mainItem.title} banner`}
+              className="h-full w-full"
+              priority
             />
             {/* image info text contains title and description and button */}
             <div className="absolute top-3 left-10 w-3/5">

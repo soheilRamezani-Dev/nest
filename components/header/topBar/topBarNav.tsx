@@ -1,7 +1,6 @@
 import { Menu } from "../../types";
 
 const TopBarNav = ({ topBarMenu }: { topBarMenu: Menu }) => {
-  //console.log(topBarMenu);
   return (
     <div>
       <ul className="flex text-sm font-light justify-center space-x-0">

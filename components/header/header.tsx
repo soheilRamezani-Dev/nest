@@ -41,7 +41,6 @@ const Header = () => {
     return allHeaderMenus?.filter((menu) => menu.title == "pages")[0];
   };
   const topBarMenu = () => {
-    console.log(allHeaderMenus);
     return allHeaderMenus?.filter((menu) => menu.title == "topMenu")[0];
   };
 

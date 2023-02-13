@@ -18,6 +18,7 @@ const MobileMenus = ({ mobileMenusItem }: { mobileMenusItem: Menu[] }) => {
         <ul className="flex space-x-2">
           {mobileMenusItem?.map((menu) => (
             <li
+              key={menu.id}
               onClick={() => {
                 setActiveMenu(menu.id);
               }}
@@ -37,8 +38,8 @@ const MobileMenus = ({ mobileMenusItem }: { mobileMenusItem: Menu[] }) => {
         <ul>
           {(mobileMenusItem as Menu[])
             ?.find((vlaue) => vlaue.id === activeMenu)
-            ?.children?.map((activemenueItem) => (
-              <SubMenuItem activemenueItem={activemenueItem} />
+            ?.children?.map((activemenueItem, index) => (
+              <SubMenuItem key={index} activemenueItem={activemenueItem} />
             ))}
         </ul>
       </div>

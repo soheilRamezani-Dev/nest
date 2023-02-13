@@ -45,8 +45,8 @@ const SubMenuItem = ({ activemenueItem }: { activemenueItem: MenuItem }) => {
           isOpenSubs ? "max-h-40 " : "max-h-0"
         }`}
       >
-        {activemenueItem.children?.map((subitem) => (
-          <li className="p-2 text-sm">
+        {activemenueItem.children?.map((subitem, index) => (
+          <li key={index} className="p-2 text-sm">
             <a href={subitem?.url}>{subitem?.title}</a>
           </li>
         ))}

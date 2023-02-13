@@ -4,7 +4,6 @@ import TopBarNav from "./topBarNav";
 import TopBarNewsSlider from "./topBarNewsSlider";
 
 const TopBar = ({ topBarMenu }: { topBarMenu: Menu }) => {
-  //console.log(topBarMenu);
   return (
     <div>
       {/* mobile top banner */}

@@ -24,8 +24,8 @@ const TopBarNewsSlider = () => {
           activenew * 28
         }`}
       >
-        {newsApi.map((value) => (
-          <li className="text-center my-1">
+        {newsApi.map((value, index) => (
+          <li key={index} className="text-center my-1">
             <a href="/" className="">
               {value}
             </a>
