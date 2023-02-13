@@ -14,4 +14,6 @@ export type Menu = {
   id: string;
   title: string;
   children: MenuItem[];
+  url?: string;
+  showInMobile?: boolean;
 };

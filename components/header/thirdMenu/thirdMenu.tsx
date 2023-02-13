@@ -12,17 +12,13 @@ import { SubMenuItem, Menu } from "../../types";
 import ThreeLevelMenuItem from "./threeLevelMenuItem";
 import TwoLevelMenuItem from "./twoLevelMenuItem";
 
-const ThirdMenu = () => {
-  const categories_api = [
-    { title: "Bread and Juice", url: "/" },
-    { title: "Baking material", url: "/" },
-    { title: "Clothing & beauty", url: "/" },
-    { title: "Deals Of The Day", url: "/" },
-    { title: "Fresh Seafood", url: "/" },
-    { title: "Milks and Dairies", url: "/" },
-    { title: "Uncategorized", url: "/" },
-    { title: "Vegetables", url: "/" },
-  ];
+const ThirdMenu = ({
+  categoryMenu,
+  pagesMenu,
+}: {
+  categoryMenu: Menu;
+  pagesMenu: Menu;
+}) => {
   const pages_api: Menu = {
     id: "2",
     title: "pages",
@@ -112,10 +108,10 @@ const ThirdMenu = () => {
     };
   }, []);
   return (
-    <div className="border-b hidden lg:block">
+    <div className="border-b hidden lg:block min-h-65 items-center">
       <div className="flex mx-auto max-w-8xl justify-between px-5 items-center relative">
         {/* categories */}
-        <div className="relative" id="categories">
+        <div className="relative my-4" id="categories">
           {/* category Button */}
           <div
             onClick={() => setCategoryDropDownIsOpen((prev) => !prev)}
@@ -133,7 +129,7 @@ const ThirdMenu = () => {
             }`}
           >
             <ul className="flex flex-wrap">
-              {categories_api.map((category, index) => (
+              {categoryMenu?.children.map((category, index) => (
                 <li key={index} className="p-1 w-1/2 text-sm">
                   <div className="cursor-pointer border px-3 py-2  rounded transition-colors duration-200 hover:text-green-600 hover:border-green-600">
                     {category.title}
@@ -146,7 +142,7 @@ const ThirdMenu = () => {
         {/* pages nav */}
         <div>
           <ul className="flex">
-            {pages_api.children.map((item, index) => (
+            {pagesMenu?.children.map((item, index) => (
               <li key={index} className="px-3.5">
                 {item.type === undefined && (
                   <div className="py-5 flex font-medium items-center hover:text-green-700 transition-colors duration-300 cursor-pointer">

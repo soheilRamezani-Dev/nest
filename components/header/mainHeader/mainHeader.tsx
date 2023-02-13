@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { useRef } from "react";
 import {
   AiOutlineShoppingCart,
   AiOutlineMenu,
@@ -8,16 +7,8 @@ import {
 import { HiArrowLongRight } from "react-icons/hi2";
 import { RxPerson, RxCrosshair1 } from "react-icons/rx";
 import AccountMenuItem from "./accountMenuItem";
-import MobileMenu from "./mobileMenu";
-import type { Ref } from "./mobileMenu";
 
-const MainHeader = () => {
-  const mobileMenueComponent = useRef<Ref>(null);
-  const mobileMenuToggleHandler = () => {
-    if (mobileMenueComponent.current) {
-      mobileMenueComponent.current.toggleMobileMenu();
-    }
-  };
+const MainHeader = ({ menuIconOnClick }: { menuIconOnClick: () => void }) => {
   return (
     <div className="border-b">
       <div className="block xl:flex justify-between my-5 max-w-8xl mx-auto px-3">
@@ -37,14 +28,11 @@ const MainHeader = () => {
             <li className="cursor-pointer">
               <AccountMenuItem Icon={RxPerson} title="Account" />
             </li>
-            <li className="cursor-pointer" onClick={mobileMenuToggleHandler}>
+            <li className="cursor-pointer" onClick={menuIconOnClick}>
               <AccountMenuItem Icon={AiOutlineMenu} title="menu" />
             </li>
           </ul>
         </div>
-
-        {/* mobile left menu */}
-        <MobileMenu ref={mobileMenueComponent} />
 
         {/* right */}
         <div className="text-gray-700 flex items-center justify-between my-3 grow">

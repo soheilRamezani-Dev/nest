@@ -8,7 +8,8 @@ module.exports = {
   theme: {
     minWidth:{'30':'30%','100px':'120px'},
     extend: {
-      maxWidth:{'8xl':'1580px'}
+      maxWidth:{'8xl':'1580px'},
+      minHeight:{'65':'65px'},
     },
   },
   plugins: [],

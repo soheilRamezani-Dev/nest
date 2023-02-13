@@ -1,8 +1,10 @@
 import DropDown from "../../dropDown";
+import { Menu } from "../../types";
 import TopBarNav from "./topBarNav";
 import TopBarNewsSlider from "./topBarNewsSlider";
 
-const TopBar = () => {
+const TopBar = ({ topBarMenu }: { topBarMenu: Menu }) => {
+  //console.log(topBarMenu);
   return (
     <div>
       {/* mobile top banner */}
@@ -14,7 +16,7 @@ const TopBar = () => {
       <div className=" border-b">
         <div className="max-w-8xl mx-auto hidden md:block xl:flex xl:justify-between">
           {/* navbar */}
-          <TopBarNav />
+          <TopBarNav topBarMenu={topBarMenu} />
 
           {/* trend news slider */}
           <TopBarNewsSlider />

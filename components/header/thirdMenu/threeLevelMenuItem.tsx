@@ -26,7 +26,7 @@ const ThreeLevelMenuItem = ({ mainItem }: { mainItem: MenuItem }) => {
             : "invisible -translate-x-3 opacity-0"
         }`}
       >
-        <div className="flex items-center p-3 mx-5 bg-white rounded-md border shadow-md transition-all duration-75 delay-75">
+        <div className="flex justify-center p-3 mx-5 bg-white rounded-md border shadow-md transition-all duration-75 delay-75">
           <div className="grow flex">
             {mainItem.children &&
               mainItem.children.map((item, index) => (
