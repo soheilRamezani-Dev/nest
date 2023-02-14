@@ -4,8 +4,13 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
+
   theme: {
-    extend: {},
+    minWidth:{'30':'30%','100px':'120px'},
+    extend: {
+      maxWidth:{'8xl':'1580px'},
+      minHeight:{'65':'65px'},
+    },
   },
   plugins: [],
 };

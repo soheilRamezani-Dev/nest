@@ -1,5 +1,5 @@
 const MainPage = () => {
-  return <div className="text-7xl font-bold underline ">soheil</div>;
+  return <div></div>;
 };
 
 export default MainPage;
