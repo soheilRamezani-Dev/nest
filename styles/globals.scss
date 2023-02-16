@@ -8,9 +8,7 @@ $top_mount: (0, 28, 56, 84, 112);
     top: -#{$top}px;
   }
 }
-html {
-  @apply overflow-hidden;
-}
+
 .mobile-menu-item {
   @apply cursor-pointer grow text-center rounded bg-gray-100 p-2 text-gray-700;
 }
@@ -19,4 +17,17 @@ html {
 }
 .social-media-icon {
   @apply bg-green-600 text-white w-7 h-7 p-2 rounded-full;
+}
+@layer components {
+  // subscribe carousel slider in top of index page
+  .subscribe-slider {
+    .slider-arrow {
+      @apply w-8 h-12 absolute bottom-[42%] bg-gray-100 py-3 rounded cursor-pointer hover:text-white hover:bg-green-600 transition-all duration-500 invisible opacity-0;
+    }
+    &:hover {
+      .slider-arrow {
+        @apply visible opacity-100;
+      }
+    }
+  }
 }
