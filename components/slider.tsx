@@ -1,6 +1,6 @@
 import database from "../firebase/firestore";
 import { doc, getDoc } from "firebase/firestore";
-import { useEffect, useRef, useState } from "react";
+import { MouseEventHandler, useEffect, useRef, useState } from "react";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
 type SliderInfo = {
@@ -14,7 +14,12 @@ type SliderInfo = {
 const Slider = () => {
   const [slidersInfo, setSliderInfo] = useState<SliderInfo[]>();
   const [activeSlide, setActiveSlide] = useState<string>();
-  const [isMouseInside, setIsMouseInside] = useState<boolean>(false);
+
+  // for dragable slider we need define state to find out user mouse down in slider or not?
+  const [isMouseDown, setIsMouseDown] = useState(false);
+  const [sliderPageX, setSliderPagex] = useState(0);
+
+  const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>();
 
   // for use setInterval we should use ref for states becaus when we use state in -
   // setTimeout and setInterval these functins use state when scaduled and when state change then  -
@@ -81,42 +86,60 @@ const Slider = () => {
     setActiveSlide(id);
   };
 
-  // i define seprate function for interval and get out that from useEffect
-  // to access that on out of useEffect becaus i want when user mouse enter to slider
-  // intervall should be clear and when mouse leave intervall should active again
+  // slideDragHandler function is for handle drad of slide to next and prev
+
+  const mouseDownHandler = (e: React.MouseEvent): void => {
+    setIsMouseDown(true);
+    setSliderPagex(e.pageX);
+  };
+  const slideDragHandler = (e: React.MouseEvent): void => {
+    if (isMouseDown) {
+      console.log("first:" + sliderPageX + " second:" + e.pageX);
+      if (e.pageX >= sliderPageX + 100) {
+        nextSlide();
+        setIsMouseDown(false);
+      } else if (e.pageX <= sliderPageX - 100) {
+        prevSlide();
+        setIsMouseDown(false);
+      }
+    }
+  };
+
+  const mouseInsideHandler = () => {
+    // when user mouse enter to slider then we clear interval tath set in use Effect
+    clearInterval(intervalId as NodeJS.Timeout);
+  };
+  const mouseOutsideHandler = () => {
+    // when mouse enter and then come out then we should set interval again
+    setIntervalId(
+      setInterval(() => {
+        nextSlide();
+      }, 5000)
+    );
+  };
 
   useEffect(() => {
     getSliderItems();
-
-    // with setInterval we change state of activeSlide
-
-    // i define seprate state (isMouseInside) to find is mouse inside of slider?
-    // if is inside then run clearInteval for deactive nextslide() automation
-    //and if is out then start automation nextslide()
-    let interval: NodeJS.Timeout | null;
-    if (!isMouseInside) {
-      //if mouse is not in slider then automotive move next slide should start!
-      interval = setInterval(() => {
+    // when component did mount then we set interval ans save it in setIntervalId state
+    setIntervalId(
+      setInterval(() => {
         nextSlide();
-      }, 5000);
-    } else {
-      //if mouse is in slider then automotive move next slide should stop!
-      clearInterval(
-        setInterval(() => {
-          nextSlide();
-        }, 5000)
-      );
-    }
+      }, 5000)
+    );
+
     return () => {
-      interval && clearInterval(interval);
+      intervalId && clearInterval(intervalId);
     };
-  }, [isMouseInside]);
+  }, []);
 
   return (
     <div
-      className="p-1 relative my-2 subscribe-slider"
-      onMouseEnter={() => setIsMouseInside(true)}
-      onMouseLeave={() => setIsMouseInside(false)}
+      className="p-1 relative my-2 subscribe-slider cursor-pointer select-none"
+      onMouseDown={mouseDownHandler}
+      onMouseUp={() => setIsMouseDown(false)}
+      onMouseMove={slideDragHandler}
+      onMouseEnter={mouseInsideHandler}
+      onMouseLeave={mouseOutsideHandler}
     >
       <ul className="relative h-[350px] xl:h-[560px]">
         {slidersInfo?.map((item) => (
