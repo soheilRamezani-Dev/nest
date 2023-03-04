@@ -1,4 +1,6 @@
-import Slider from "../components/slider";
+import Banners from "../components/index-page/Banners";
+import FeaturedCategories from "../components/index-page/featuredCategories";
+import Slider from "../components/index-page/slider";
 
 const MainPage = () => {
   return (
@@ -6,7 +8,9 @@ const MainPage = () => {
       {/* subscribe slider */}
       <Slider />
       {/* featured category */}
+      <FeaturedCategories />
       {/* banners */}
+      <Banners />
       {/* popular products */}
       {/* daily best sells */}
       {/* deals of the day */}

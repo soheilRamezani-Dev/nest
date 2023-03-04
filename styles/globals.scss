@@ -19,6 +19,9 @@ $top_mount: (0, 28, 56, 84, 112);
   @apply bg-green-600 text-white w-7 h-7 p-2 rounded-full;
 }
 @layer components {
+  .green-button {
+    @apply flex bg-green-600 cursor-pointer text-white py-2 px-7 rounded text-sm font-medium;
+  }
   // subscribe carousel slider in top of index page
   .subscribe-slider {
     .slider-arrow {
@@ -28,6 +31,12 @@ $top_mount: (0, 28, 56, 84, 112);
       .slider-arrow {
         @apply visible opacity-100;
       }
+    }
+  }
+  .featured-category-arrow {
+    @apply w-10 h-10 p-3 bg-gray-100 rounded-full cursor-pointer transition-all duration-150;
+    &:hover {
+      @apply bg-green-600 text-white;
     }
   }
 }

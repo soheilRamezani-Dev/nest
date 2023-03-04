@@ -1,6 +1,6 @@
-import database from "../firebase/firestore";
+import database from "../../firebase/firestore";
 import { doc, getDoc } from "firebase/firestore";
-import { MouseEventHandler, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
 type SliderInfo = {

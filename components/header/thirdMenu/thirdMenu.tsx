@@ -43,7 +43,7 @@ const ThirdMenu = ({
           {/* category Button */}
           <div
             onClick={() => setCategoryDropDownIsOpen((prev) => !prev)}
-            className="flex bg-green-600 cursor-pointer text-white py-2 px-7 rounded text-sm font-medium"
+            className="green-button"
           >
             <BiCategory className="w-5 h-5 mx-2" /> Browse All Categories{" "}
             <RxChevronDown className="mx-2 w-5 h-5 font-light" />
