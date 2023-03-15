@@ -1,5 +1,6 @@
 import Banners from "../components/index-page/Banners";
 import FeaturedCategories from "../components/index-page/featuredCategories";
+import PopularProducts from "../components/index-page/popularProducts";
 import Slider from "../components/index-page/slider";
 
 const MainPage = () => {
@@ -12,6 +13,7 @@ const MainPage = () => {
       {/* banners */}
       <Banners />
       {/* popular products */}
+      <PopularProducts />
       {/* daily best sells */}
       {/* deals of the day */}
       {/* top selling */}

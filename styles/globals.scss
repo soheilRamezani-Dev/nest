@@ -22,6 +22,9 @@ $top_mount: (0, 28, 56, 84, 112);
   .green-button {
     @apply flex bg-green-600 cursor-pointer text-white py-2 px-7 rounded text-sm font-medium;
   }
+  .h2-title {
+    @apply text-3xl font-medium;
+  }
   // subscribe carousel slider in top of index page
   .subscribe-slider {
     .slider-arrow {

@@ -41,8 +41,8 @@ const Banners = () => {
                 height={450}
                 className="w-full image"
               />
-              <div className="w-1/3 md:w-1/2 flex flex-col justify-center space-y-5 h-full absolute top-0 left-14">
-                <h3 className="text-2xl md:text-[20px] lg:text-xl">
+              <div className="w-1/2 flex flex-col justify-center space-y-5 h-full absolute top-0 left-14">
+                <h3 className="text-xl md:text-[20px] lg:text-xl">
                   {banner.title}
                 </h3>
                 <button className="green-button w-36 flex justify-between items-center">

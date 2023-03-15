@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import { ElementRef, useEffect, useRef, useState } from "react";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import database from "../../firebase/firestore";
 
 type Categories = { title: string; slug: string; icon: string; count: string };
@@ -12,8 +12,7 @@ const FeaturedCategories = () => {
   const categoriesWraperElement = useRef<HTMLUListElement>(null);
   // get top level categories from firestore
   const getCategories = async () => {
-    const categoryDocs = collection(database, "category");
-    const snapshot = await getDocs(categoryDocs);
+    const snapshot = await getDocs(collection(database, "category"));
     let data: Categories[] = [];
     snapshot.forEach((doc) => {
       data = [...data, doc.data() as Categories];
@@ -71,7 +70,7 @@ const FeaturedCategories = () => {
   return (
     <div className="mt-7 p-1 w-full overflow-hidden relative h-72">
       <div className="flex justify-between">
-        <h2 className="text-3xl font-medium">Featured Categories</h2>
+        <h2 className="h2-title">Featured Categories</h2>
         <div className="flex space-x-2">
           <BsArrowLeft
             className="featured-category-arrow"
