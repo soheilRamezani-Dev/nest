@@ -34,7 +34,7 @@ const ProductCartsSlider = forwardRef<Ref, Props>(
       console.log("leftPosition: " + leftPosition);
       if (
         products?.length * cartWidth <= containerWidth ||
-        Math.abs(leftPosition) + containerWidth + 12.5 <
+        Math.abs(leftPosition) + containerWidth + 12.4 <
           products?.length * cartWidth
       )
         setLeftPosition(0);
@@ -73,10 +73,10 @@ const ProductCartsSlider = forwardRef<Ref, Props>(
       <ul
         onResize={setSizeOfCarts}
         style={{ transform: `translate(${leftPosition}px)` }}
-        className={`cart-slider carts flex flex-nowrap transition-all duration-500 relative top-0 left-0 ${
+        className={`cart-slider carts flex flex-nowrap relative top-0 left-0 ${
           activeCategory === category.id
-            ? "visible opacity-100 max-h-[20000px]"
-            : "invisible opacity-0 max-h-0"
+            ? "transition-transform-opacity duration-700 opacity-100 max-h-[20000px]"
+            : "opacity-0 max-h-0"
         }`}
       >
         {products &&
