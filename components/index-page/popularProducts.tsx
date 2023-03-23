@@ -78,10 +78,10 @@ const PopularProducts = () => {
 
   return (
     <div className="mt-5">
-      <div className="lg:flex lg:justify-between lg:items-center">
-        <h2 className="h2-title my-7">Popular Products</h2>
+      <div className="lg:flex lg:justify-between lg:items-center my-6">
+        <h2 className="mt-5 h2-title ">Popular Products</h2>
         {/* category list */}
-        <div>
+        <div className="mt-5">
           <CategoryTabs
             activeCategory={activeCategory}
             setActiveCategory={setActiveCategory}
@@ -95,7 +95,7 @@ const PopularProducts = () => {
           <ul
             className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-5 transition-opacity duration-500 ${
               activeCategory === category.id
-                ? "visible opacity-100 max-h-[1000px]"
+                ? "visible opacity-100 max-h-[20000px]"
                 : "invisible opacity-0 max-h-0"
             }`}
           >
@@ -105,6 +105,7 @@ const PopularProducts = () => {
               )
               .map((product) => (
                 <ProductCart
+                  withSeller
                   key={product.id}
                   product={product}
                   productCategory={

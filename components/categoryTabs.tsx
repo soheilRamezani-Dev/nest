@@ -1,6 +1,4 @@
-import { useImperativeHandle, useState } from "react";
 import { Category } from "./types";
-import { forwardRef } from "react";
 
 type Props = {
   categories: Category[];

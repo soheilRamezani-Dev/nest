@@ -68,16 +68,16 @@ const FeaturedCategories = () => {
     }
   };
   return (
-    <div className="mt-7 p-1 w-full overflow-hidden relative h-72">
+    <div className="mt-7 p-1 w-full relative h-72 group/section overflow-hidden">
       <div className="flex justify-between">
         <h2 className="h2-title">Featured Categories</h2>
         <div className="flex space-x-2">
           <BsArrowLeft
-            className="featured-category-arrow"
+            className="featured-category-arrow -left-2"
             onClick={slideLeftHandler}
           />
           <BsArrowRight
-            className="featured-category-arrow"
+            className="featured-category-arrow -right-2"
             onClick={slideRightHandler}
           />
         </div>

@@ -36,6 +36,7 @@ export type ProductCartInfo = {
   seller_link: string;
   visit_count: number;
   time: Timestamp;
+  count: number;
 };
 export type Category = {
   id: string;
