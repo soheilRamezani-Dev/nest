@@ -1,12 +1,11 @@
+import { collectionGroup, limit, orderBy, query } from "firebase/firestore";
 import { createRef, ElementRef, RefObject, useEffect, useState } from "react";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
+import database from "../../firebase/firestore";
 import { useGetCategoriesInfo, useGetProducts } from "../../hooks/productCart";
 import CategoryTabs from "../categoryTabs";
 import CartSlider from "../product-cart-slider/cartSlider";
-import ProductCartsSlider from "../ProductCartsSlider";
 import { Category, ProductCartInfo } from "./../types";
-
-type CartContainerType = RefObject<ElementRef<typeof ProductCartsSlider>>;
 
 const DailyBestSells = () => {
   const [dailyBestSellsProduct, setDailyBestSellsProduct] = useState<
@@ -17,7 +16,12 @@ const DailyBestSells = () => {
 
   useEffect(() => {
     const setProducts = async () => {
-      const { products, categoriesId } = await useGetProducts();
+      const q = query(
+        collectionGroup(database, "products"),
+        orderBy("sell_count", "desc"),
+        limit(30)
+      );
+      const { products, categoriesId } = await useGetProducts(q);
       const categoryInfo = await useGetCategoriesInfo(categoriesId);
       setDailyBestSellsProduct(products);
       setDailyBestSellsProductCategories((prev) => [

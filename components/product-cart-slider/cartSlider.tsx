@@ -1,7 +1,7 @@
 import { createRef, ElementRef, RefObject, useState } from "react";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import CategoryTabs from "../categoryTabs";
-import ProductCartsSlider from "../ProductCartsSlider";
+import ProductCartsSlider from "./ProductCartsSlider";
 import { Category, ProductCartInfo } from "../types";
 
 type CartContainerType = RefObject<ElementRef<typeof ProductCartsSlider>>;

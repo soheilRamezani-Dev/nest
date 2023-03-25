@@ -1,5 +1,6 @@
 import Banners from "../components/index-page/Banners";
 import DailyBestSells from "../components/index-page/dailyBestSells";
+import DealsOfTheDay from "../components/index-page/dealsOfTheDay";
 import FeaturedCategories from "../components/index-page/featuredCategories";
 import PopularProducts from "../components/index-page/popularProducts";
 import Slider from "../components/index-page/slider";
@@ -18,6 +19,7 @@ const MainPage = () => {
       {/* daily best sells */}
       <DailyBestSells />
       {/* deals of the day */}
+      <DealsOfTheDay />
       {/* top selling */}
       {/* trending products */}
       {/* recently added */}

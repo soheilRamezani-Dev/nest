@@ -5,7 +5,11 @@ import {
   AiOutlineShoppingCart,
 } from "react-icons/ai";
 import { BsShuffle } from "react-icons/bs";
-import { Category, ProductCartInfo } from "./types";
+import Rate from "./rate";
+import SellerLink from "./sellerLink";
+import { Category, ProductCartInfo } from "../types";
+import CartPrice from "./price";
+import BuyButton from "./buyButton";
 
 type Props = {
   product: ProductCartInfo;
@@ -13,7 +17,7 @@ type Props = {
   withCount?: boolean;
   withSeller?: boolean;
 };
-const ProductCart = ({
+const ProductCartType1 = ({
   product,
   productCategory,
   withCount = false,
@@ -100,26 +104,10 @@ const ProductCart = ({
             {product.title}
           </h3>
           {/* product rate */}
-          <div className="relative mt-2">
-            <span className="bg-[url('/images/five-star-gray.png')] inline-block w-24 h-4"></span>
-            <span
-              style={{ width: (product.rate * 96) / 5 + "px" }}
-              className="bg-[url('/images/five-star-gold.png')] h-4 inline-block absolute top-[1px] left-0"
-            ></span>
-            <span className="text-gray-400 mx-3 text-sm">
-              {product.rate_count}
-            </span>
-          </div>
+          <Rate rate={product.rate} rateCount={product.rate_count} />
           {/* seller */}
           {withSeller && (
-            <div className="mt-2 text-sm">
-              <a href={product.seller_link}>
-                <span className="text-gray-400">By</span>
-                <span className="text-green-600 hover:text-orange-400 mx-2 transition-all duration-300">
-                  {product.seller}
-                </span>
-              </a>
-            </div>
+            <SellerLink title={product.seller} link={product.seller_link} />
           )}
 
           <div
@@ -128,29 +116,11 @@ const ProductCart = ({
             }`}
           >
             {/* price */}
-            <div className="mt-4">
-              {/* price after discount */}
-              <span
-                className={`text-green-600 ${
-                  product.max_price ? "" : "underline"
-                } text-lg font-medium`}
-              >
-                $
-                {(
-                  product.min_price -
-                  (product.min_price * product.discount) / 100
-                ).toFixed(2)}{" "}
-                {product.max_price
-                  ? ` - $${(
-                      product.max_price -
-                      (product.max_price * product.discount) / 100
-                    ).toFixed(2)}`
-                  : ""}
-              </span>
-              <span className="text-gray-300 line-through mx-4">
-                {product.max_price ? "" : `$${product.min_price}`}
-              </span>
-            </div>
+            <CartPrice
+              max_price={product.max_price}
+              min_price={product.min_price}
+              discount={product.discount}
+            />
             {/* count */}
             {withCount && (
               <div className="py-2">
@@ -169,16 +139,7 @@ const ProductCart = ({
               </div>
             )}
             {/* Add button */}
-            <div className="mt-4">
-              <button
-                className={`flex justify-center items-center ${
-                  withCount ? "w-full" : ""
-                } rounded-md text-green-700 bg-green-100 px-4 py-2 relative bottom-0 hover:bottom-1 transition-all duration-500 hover:shadow-lg hover:shadow-gray-100 lg:text-base text-sm`}
-              >
-                <AiOutlineShoppingCart className="mr-1 w-5 h-5" />{" "}
-                {product.max_price ? "" : "Add"}
-              </button>
-            </div>
+            <BuyButton withCount={withCount} max_price={product.max_price} />
           </div>
         </div>
       </a>
@@ -186,4 +147,4 @@ const ProductCart = ({
   );
 };
 
-export default ProductCart;
+export default ProductCartType1;

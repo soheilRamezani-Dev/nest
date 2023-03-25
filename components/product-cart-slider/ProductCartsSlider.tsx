@@ -1,6 +1,6 @@
 import { useEffect, useImperativeHandle, useRef, useState } from "react";
-import ProductCart from "./productCart";
-import { Category, ProductCartInfo } from "./types";
+import ProductCartType1 from "../product-cart/productCartType1";
+import { Category, ProductCartInfo } from "../types";
 import { forwardRef } from "react";
 
 type Ref = {
@@ -27,11 +27,6 @@ const ProductCartsSlider = forwardRef<Ref, Props>(
       setContainerWidth(
         Number(document.querySelector(".products-cart-slider")?.clientWidth)
       );
-      console.log(
-        "products?.length * cartWidth: " + products?.length * cartWidth
-      );
-      console.log("containerWidth: " + containerWidth);
-      console.log("leftPosition: " + leftPosition);
       if (
         products?.length * cartWidth <= containerWidth ||
         Math.abs(leftPosition) + containerWidth + 12.4 <
@@ -81,7 +76,7 @@ const ProductCartsSlider = forwardRef<Ref, Props>(
       >
         {products &&
           products.map((product) => (
-            <ProductCart
+            <ProductCartType1
               key={product.id}
               product={product}
               productCategory={category}

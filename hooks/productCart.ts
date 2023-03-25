@@ -1,25 +1,19 @@
 import {
   collection,
-  collectionGroup,
+  DocumentData,
   documentId,
   getDocs,
-  limit,
-  orderBy,
+  Query,
   query,
   where,
 } from "firebase/firestore";
 import { Category, ProductCartInfo } from "../components/types";
 import database from "../firebase/firestore";
 
-export async function useGetProducts() {
+export async function useGetProducts(query: Query<DocumentData>) {
   let products: ProductCartInfo[] = [];
   let categoriesId: string[] = [];
-  const q = query(
-    collectionGroup(database, "products"),
-    orderBy("sell_count", "desc"),
-    limit(30)
-  );
-  const snapshot = await getDocs(q);
+  const snapshot = await getDocs(query);
   snapshot.forEach((item) => {
     const categoryId = item.ref.path.split("/")[1];
 

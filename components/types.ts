@@ -37,6 +37,7 @@ export type ProductCartInfo = {
   visit_count: number;
   time: Timestamp;
   count: number;
+  discount_expire_time?: Timestamp;
 };
 export type Category = {
   id: string;

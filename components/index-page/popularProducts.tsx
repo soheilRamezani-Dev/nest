@@ -10,9 +10,10 @@ import {
 } from "firebase/firestore";
 import { useEffect, useRef, useState } from "react";
 import database from "../../firebase/firestore";
-import ProductCart from "../productCart";
+import ProductCartType1 from "../product-cart/productCartType1";
 import { Category, ProductCartInfo } from "../types";
 import CategoryTabs from "../categoryTabs";
+import { useGetCategoriesInfo, useGetProducts } from "../../hooks/productCart";
 
 const PopularProducts = () => {
   const [popularProducts, setPopularProducts] = useState<ProductCartInfo[]>([]);
@@ -23,53 +24,15 @@ const PopularProducts = () => {
   const [activeCategory, setActiveCategory] = useState<string>("");
 
   const setProducts = async () => {
-    let products: ProductCartInfo[] = [];
-    let categories: string[] = [];
     const q = query(
       collectionGroup(database, "products"),
       orderBy("rate", "desc"),
       orderBy("sell_count", "desc"),
       limit(30)
     );
-    const snapshot = await getDocs(q);
-    snapshot.forEach((product) => {
-      const categoryId = product.ref.path.split("/")[1];
-      products = [
-        ...products,
-        {
-          ...product.data(),
-          id: product.id,
-          categoryId,
-        } as ProductCartInfo,
-      ];
-      categories.push(categoryId);
-      // remove duplicate element in array
-      categories = categories.filter(
-        (item, index) => categories.indexOf(item) === index
-      );
-    });
+    const { products, categoriesId } = await useGetProducts(q);
     setPopularProducts(products);
-    setCategory(categories);
-  };
-
-  const setCategory = async (categoriesId: string[]) => {
-    let categoriesInfo: Category[] = [];
-    const q = query(
-      collection(database, "category"),
-      where(documentId(), "in", categoriesId)
-    );
-    const snapshot = await getDocs(q);
-    snapshot.forEach((category) => {
-      categoriesInfo = [
-        ...categoriesInfo,
-        {
-          id: category.id,
-          url: "/category/" + category.data().slug,
-          title: category.data().title,
-        },
-      ];
-    });
-    setPopularProductsCategory((prev) => [...prev, ...categoriesInfo]);
+    setPopularProductsCategory(await useGetCategoriesInfo(categoriesId));
   };
 
   useEffect(() => {
@@ -104,7 +67,7 @@ const PopularProducts = () => {
                 (item) => item.categoryId === category.id || category.id === ""
               )
               .map((product) => (
-                <ProductCart
+                <ProductCartType1
                   withSeller
                   key={product.id}
                   product={product}

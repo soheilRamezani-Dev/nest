@@ -65,4 +65,7 @@ $top_mount: (0, 28, 56, 84, 112);
       @apply ml-0;
     }
   }
+  .timer-tile {
+    @apply bg-white rounded-md w-14 h-16 flex flex-col justify-center items-center text-xs mx-1;
+  }
 }
