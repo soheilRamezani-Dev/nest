@@ -32,7 +32,8 @@ const PopularProducts = () => {
     );
     const { products, categoriesId } = await useGetProducts(q);
     setPopularProducts(products);
-    setPopularProductsCategory(await useGetCategoriesInfo(categoriesId));
+    const categoriesInfo = await useGetCategoriesInfo(categoriesId);
+    setPopularProductsCategory((prev) => [...prev, ...categoriesInfo]);
   };
 
   useEffect(() => {
