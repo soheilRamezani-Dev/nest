@@ -26,6 +26,9 @@ const ProductCartType2 = ({ product }: { product: ProductCartInfo }) => {
       const timerInterval = setTimeout(() => {
         setTimer({ days: days, hours: hours, mins: mins, secs: secs });
       }, 1000);
+      return () => {
+        clearTimeout(timerInterval);
+      };
     }
   }, [timer]);
   return (
@@ -33,14 +36,16 @@ const ProductCartType2 = ({ product }: { product: ProductCartInfo }) => {
       <div className="h-[335px]">
         <Image
           className="rounded-2xl w-full h-full object-cover"
-          src={"/images/products/" + product.image1}
+          src={`/images/products/${
+            product.banner ? product.banner : product.image1
+          }`}
           width={930}
           height={670}
           alt={"image of" + product.title}
         />
       </div>
 
-      <div className="w-11/12 z-10 relative -mt-[25%] mx-auto left-0 right-0 group-hover/cartType2:-translate-y-2 transition-all duration-300">
+      <div className="w-11/12 z-10 relative -mt-44 mx-auto left-0 right-0 group-hover/cartType2:-translate-y-2 transition-all duration-300">
         {/* time counter */}
         <div className="mb-5 flex justify-center mx-1">
           <div className="timer-tile">

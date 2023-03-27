@@ -4,6 +4,7 @@ import DealsOfTheDay from "../components/index-page/dealsOfTheDay";
 import FeaturedCategories from "../components/index-page/featuredCategories";
 import PopularProducts from "../components/index-page/popularProducts";
 import Slider from "../components/index-page/slider";
+import TopsProducts from "../components/index-page/tops-products/topsProducts";
 
 const MainPage = () => {
   return (
@@ -21,6 +22,7 @@ const MainPage = () => {
       {/* deals of the day */}
       <DealsOfTheDay />
       {/* top selling */}
+      <TopsProducts />
       {/* trending products */}
       {/* recently added */}
       {/* top rated */}

@@ -24,6 +24,7 @@ export type ProductCartInfo = {
   categoryId: string;
   title: string;
   url: string;
+  banner: string;
   image1: string;
   image2: string;
   seller: string;
@@ -38,6 +39,7 @@ export type ProductCartInfo = {
   time: Timestamp;
   count: number;
   discount_expire_time?: Timestamp;
+  time_of_submit: Timestamp;
 };
 export type Category = {
   id: string;

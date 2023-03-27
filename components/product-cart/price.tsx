@@ -8,7 +8,7 @@ const CartPrice = ({
   discount: number;
 }) => {
   return (
-    <div className="mt-4">
+    <div className="mt-2">
       {/* price after discount */}
       <span
         className={`text-green-600 ${
