@@ -10,6 +10,7 @@ module.exports = {
     extend: {
       maxWidth:{'8xl':'1580px'},
       minHeight:{'65':'65px'},
+      transitionProperty:{'transform-opacity':'transform,opacity'}
     },
   },
   plugins: [],

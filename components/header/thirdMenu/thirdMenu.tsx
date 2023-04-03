@@ -19,78 +19,6 @@ const ThirdMenu = ({
   categoryMenu: Menu;
   pagesMenu: Menu;
 }) => {
-  const pages_api: Menu = {
-    id: "2",
-    title: "pages",
-    children: [
-      {
-        id: "1",
-        title: "Home",
-        url: "/",
-        type: "twoLevel",
-        children: [
-          { title: "Home1", url: "/" },
-          { title: "Home2", url: "/" },
-          { title: "Home3", url: "/" },
-        ],
-      },
-      { id: "1", title: "About", url: "/" },
-      {
-        id: "1",
-        title: "shop",
-        url: "/",
-        type: "threeLevel",
-        children: [
-          {
-            title: "Shop1",
-            url: "/",
-            children: [
-              { title: "Shop1.1", url: "/" },
-              { title: "Shop1.2", url: "/" },
-              { title: "Shop1.3", url: "/" },
-              { title: "Shop1.4", url: "/" },
-            ],
-          },
-          {
-            title: "Shop2",
-            url: "/",
-            children: [
-              { title: "Shop2.1", url: "/" },
-              { title: "Shop2.2", url: "/" },
-              { title: "Shop2.3", url: "/" },
-            ],
-          },
-          {
-            title: "Shop3",
-            url: "/",
-            children: [
-              { title: "Shop3.1", url: "/" },
-              { title: "Shop3.2", url: "/" },
-              { title: "Shop3.3", url: "/" },
-              { title: "Shop3.4", url: "/" },
-              { title: "Shop3.5", url: "/" },
-            ],
-          },
-        ],
-      },
-      { id: "1", title: "vendors", url: "/" },
-      { id: "1", title: "Mega Menu", url: "/" },
-      {
-        id: "1",
-        title: "Blog",
-        url: "/",
-        type: "twoLevel",
-        children: [
-          { title: "Blog1", url: "/" },
-          { title: "Blog2", url: "/" },
-          { title: "Blog2", url: "/" },
-        ],
-      },
-      { id: "1", title: "pages", url: "/" },
-      { id: "1", title: "contact", url: "/" },
-    ],
-  };
-
   const [categoryDropDownIsOpen, setCategoryDropDownIsOpen] = useState(false);
 
   const closeCategoryDropDown = (event: Event) => {
@@ -115,14 +43,14 @@ const ThirdMenu = ({
           {/* category Button */}
           <div
             onClick={() => setCategoryDropDownIsOpen((prev) => !prev)}
-            className="flex bg-green-600 cursor-pointer text-white py-2 px-7 rounded text-sm font-medium"
+            className="green-button"
           >
             <BiCategory className="w-5 h-5 mx-2" /> Browse All Categories{" "}
             <RxChevronDown className="mx-2 w-5 h-5 font-light" />
           </div>
           {/* categories item drop down */}
           <div
-            className={`w-96 p-5 bg-white border border-green-200 absolute top-12 rounded-md transition-all duration-300 ease-out ${
+            className={`z-10 w-96 p-5 bg-white border border-green-200 absolute top-12 rounded-md transition-all duration-300 ease-out ${
               categoryDropDownIsOpen
                 ? "visible opacity-100"
                 : "invisible opacity-0"
