@@ -2,6 +2,7 @@ import database from "../../firebase/firestore";
 import { doc, getDoc } from "firebase/firestore";
 import { useEffect, useRef, useState } from "react";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
+import SubscribeForm from "../subscribeForm";
 
 type SliderInfo = {
   id: string;
@@ -159,16 +160,7 @@ const Slider = () => {
               <p className=" text-xl xl:text-2xl text-gray-400">
                 {item.description}
               </p>
-              <div className="relative lg:w-2/3 text-sm xl:text-lg">
-                <input
-                  className="w-full rounded-full py-3 xl:py-5 px-5"
-                  type="text"
-                  placeholder="Your Email Address"
-                />
-                <button className="bg-green-600 text-white py-3 xl:py-5 px-5 rounded-full absolute right-0">
-                  Subscribe
-                </button>
-              </div>
+              <SubscribeForm />
             </div>
           </li>
         ))}
