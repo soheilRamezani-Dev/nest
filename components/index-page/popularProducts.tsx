@@ -12,7 +12,7 @@ import { useEffect, useRef, useState } from "react";
 import database from "../../firebase/firestore";
 import ProductCartType1 from "../product-cart/productCartType1";
 import { Category, ProductCartInfo } from "../types";
-import CategoryTabs from "../categoryTabs";
+import CategoryTabs from "../layout/categoryTabs";
 import { useGetCategoriesInfo, useGetProducts } from "../../hooks/productCart";
 
 const PopularProducts = () => {

@@ -1,6 +1,6 @@
 import { createRef, ElementRef, RefObject, useState } from "react";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
-import CategoryTabs from "../categoryTabs";
+import CategoryTabs from "../layout/categoryTabs";
 import ProductCartsSlider from "./ProductCartsSlider";
 import { Category, ProductCartInfo } from "../types";
 
