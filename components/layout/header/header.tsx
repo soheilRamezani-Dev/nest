@@ -5,8 +5,8 @@ import TopBar from "./topBar/topBar";
 import type { Ref } from "./mobileNav/mobileNav";
 import MobileNav from "./mobileNav/mobileNav";
 import { collection, getDocs, query } from "firebase/firestore";
-import database from "../../firebase/firestore";
-import { Menu } from "../types";
+import database from "../../../firebase/firestore";
+import { Menu } from "../../types";
 
 const Header = () => {
   const mobileMenueComponent = useRef<Ref>(null);

@@ -68,4 +68,13 @@ $top_mount: (0, 28, 56, 84, 112);
   .timer-tile {
     @apply bg-white rounded-md w-14 h-16 flex flex-col justify-center items-center text-xs mx-1;
   }
+  .green-small-icon {
+    @apply text-green-600 w-6 h-6 inline;
+  }
+  a {
+    @apply text-gray-600 hover:text-green-500 transition-colors duration-300;
+  }
+  .green-link {
+    @apply text-green-600 hover:text-orange-500 transition-colors duration-300;
+  }
 }

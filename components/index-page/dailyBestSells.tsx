@@ -3,7 +3,7 @@ import { createRef, ElementRef, RefObject, useEffect, useState } from "react";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import database from "../../firebase/firestore";
 import { useGetCategoriesInfo, useGetProducts } from "../../hooks/productCart";
-import CategoryTabs from "../categoryTabs";
+import CategoryTabs from "../layout/categoryTabs";
 import CartSlider from "../product-cart-slider/cartSlider";
 import { Category, ProductCartInfo } from "./../types";
 
