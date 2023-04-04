@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { RxChevronDown } from "react-icons/rx";
-import type { MenuItem } from "../../types";
+import type { MenuItem } from "../../../types";
 
 const TwoLevelMenuItem = ({ mainItem }: { mainItem: MenuItem }) => {
   const [dropDownIsOpen, setDropDownIsOpen] = useState(false);
@@ -20,7 +20,7 @@ const TwoLevelMenuItem = ({ mainItem }: { mainItem: MenuItem }) => {
       </div>
       {mainItem.children && mainItem.type === "twoLevel" && (
         <ul
-          className={`absolute top-16 py-2 px-1 bg-white rounded-md border shadow-md transition-all duration-75 delay-75 ${
+          className={`absolute top-16 py-2 px-1 bg-white rounded-md border shadow-md transition-all duration-75 delay-75 z-10 ${
             dropDownIsOpen
               ? "visible translate-x-0 opacity-100"
               : "invisible -translate-x-3 opacity-0"

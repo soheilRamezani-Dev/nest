@@ -8,7 +8,7 @@ import {
 import { BiCategory } from "react-icons/bi";
 import { RxChevronDown } from "react-icons/rx";
 import { TfiHeadphoneAlt } from "react-icons/tfi";
-import { SubMenuItem, Menu } from "../../types";
+import { SubMenuItem, Menu } from "../../../types";
 import ThreeLevelMenuItem from "./threeLevelMenuItem";
 import TwoLevelMenuItem from "./twoLevelMenuItem";
 

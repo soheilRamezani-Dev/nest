@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { RxChevronDown } from "react-icons/rx";
-import { MenuItem } from "../../types";
+import { MenuItem } from "../../../types";
 
 const ThreeLevelMenuItem = ({ mainItem }: { mainItem: MenuItem }) => {
   const [dropDownIsOpen, setDropDownIsOpen] = useState(false);
@@ -20,7 +20,7 @@ const ThreeLevelMenuItem = ({ mainItem }: { mainItem: MenuItem }) => {
         {mainItem.children && <RxChevronDown className="ml-1" />}
       </div>
       <div
-        className={`left-0 box-border max-w-8xl w-screen absolute top-16 transition-all duration-200 delay-75 ${
+        className={`left-0 box-border max-w-8xl w-screen absolute top-16 transition-all duration-200 delay-75 z-10 ${
           dropDownIsOpen
             ? "visible translate-x-0 opacity-100"
             : "invisible -translate-x-3 opacity-0"
