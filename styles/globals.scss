@@ -59,7 +59,7 @@ $top_mount: (0, 28, 56, 84, 112);
   .products-cart-slider {
     @apply overflow-hidden w-full relative;
     li {
-      @apply w-[48%] md:w-[31.5%] lg:w-[24%] xl:w-[19.5%] shrink-0 m-2;
+      @apply w-[48%] md:w-[31.5%] lg:w-[24%] xl:w-[19%] shrink-0 m-2;
     }
     li:first-child {
       @apply ml-0;
