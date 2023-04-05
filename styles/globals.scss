@@ -77,4 +77,7 @@ $top_mount: (0, 28, 56, 84, 112);
   .green-link {
     @apply text-green-600 hover:text-orange-500 transition-colors duration-300;
   }
+  .move-up-transition {
+    @apply cursor-pointer hover:-translate-y-1 transition-transform duration-300;
+  }
 }

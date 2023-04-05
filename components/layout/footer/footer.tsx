@@ -157,12 +157,14 @@ const Footer = () => {
           <p> From App Store or Google Play</p>
           <div className="flex space-x-5 my-10">
             <Image
+              className="move-up-transition"
               src="/images/google-play.jpg"
               alt="download android app"
               width={202}
               height={67}
             />
             <Image
+              className="move-up-transition"
               src="/images/appstore.jpg"
               alt="download android app"
               width={202}
@@ -171,7 +173,7 @@ const Footer = () => {
           </div>
           <p>Secured Payment Gateways</p>
           <Image
-            className="mt-5"
+            className="mt-5 move-up-transition"
             src="/images/payment-method.png"
             alt="payment gateway"
             width={224}
