@@ -80,4 +80,7 @@ $top_mount: (0, 28, 56, 84, 112);
   .move-up-transition {
     @apply cursor-pointer hover:-translate-y-1 transition-transform duration-300;
   }
+  .green-rounded-full-icon {
+    @apply w-7 h-7 p-2 text-white bg-green-600 rounded-full;
+  }
 }

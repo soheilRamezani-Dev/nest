@@ -3,14 +3,9 @@ import Features from "./features";
 import { doc, getDoc } from "firebase/firestore";
 import database from "../../../firebase/firestore";
 import Image from "next/image";
-import {
-  CiHeadphones,
-  CiLocationOn,
-  CiMail,
-  CiTimer,
-  CiVoicemail,
-} from "react-icons/ci";
+import { CiHeadphones, CiLocationOn, CiMail, CiTimer } from "react-icons/ci";
 import FooterMenu from "./footerMenu";
+import CopyWrite from "./copyWrite";
 
 export type Feature = {
   title: string;
@@ -29,159 +24,162 @@ const Footer = () => {
     getFeaturesFromServer();
   }, []);
   return (
-    <div className="p-3 max-w-8xl mx-auto">
-      {/* features list */}
-      <div className="mt-5 gap-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-        {features?.map((item) => (
-          <Features
-            title={item.title}
-            description={item.description}
-            icon={item.icon}
-          />
-        ))}
-      </div>
-
-      {/* main footer */}
-      <div className="px-5 md:px-0 text-gray-600 mt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-y-5">
-        {/* logo & address & contact */}
-        <div className="pr-7">
-          {/* logo */}
-          <div>
-            <Image
-              src="/images/logo.svg"
-              width={200}
-              height={62}
-              alt="logo in footer"
+    <>
+      <div className="p-3 max-w-8xl mx-auto">
+        {/* features list */}
+        <div className="mt-5 gap-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+          {features?.map((item) => (
+            <Features
+              title={item.title}
+              description={item.description}
+              icon={item.icon}
             />
-          </div>
-          {/* description */}
-          <p className="mt-5">Awesome grocery store website template</p>
-          {/* contact & address */}
-          <ul className="mt-7 space-y-3">
-            <li className="space-x-2 items-center">
-              <CiLocationOn className="green-small-icon" />
-              <span>
-                <span className="font-medium">address </span>
+          ))}
+        </div>
+
+        {/* main footer */}
+        <div className="px-5 md:px-0 text-gray-600 mt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-y-5">
+          {/* logo & address & contact */}
+          <div className="pr-7">
+            {/* logo */}
+            <div>
+              <Image
+                src="/images/logo.svg"
+                width={200}
+                height={62}
+                alt="logo in footer"
+              />
+            </div>
+            {/* description */}
+            <p className="mt-5">Awesome grocery store website template</p>
+            {/* contact & address */}
+            <ul className="mt-7 space-y-3">
+              <li className="space-x-2 items-center">
+                <CiLocationOn className="green-small-icon" />
                 <span>
-                  5171 W Campbell Ave undefined Kent, Utah 53127 United States
+                  <span className="font-medium">address </span>
+                  <span>
+                    5171 W Campbell Ave undefined Kent, Utah 53127 United States
+                  </span>
                 </span>
-              </span>
-            </li>
-            <li className="space-x-2 items-center">
-              <CiHeadphones className="green-small-icon" />
-              <span>
-                <span className="font-medium">Call Us </span>
-                <a className="green-link" href="tel:(+91)-540-025-124553">
-                  (+91)-540-025-124553
-                </a>
-              </span>
-            </li>
-            <li className="space-x-2 items-center">
-              <CiMail className="green-small-icon" />
-              <span>
-                <span className="font-medium">Email </span>
-                <a className="green-link" href="mailto:sale@Nest.com">
-                  sale@Nest.com
-                </a>
-              </span>
-            </li>
-            <li className="space-x-2 items-center">
-              <CiTimer className="green-small-icon" />
-              <span className="font-medium">Hours </span>
+              </li>
+              <li className="space-x-2 items-center">
+                <CiHeadphones className="green-small-icon" />
+                <span>
+                  <span className="font-medium">Call Us </span>
+                  <a className="green-link" href="tel:(+91)-540-025-124553">
+                    (+91)-540-025-124553
+                  </a>
+                </span>
+              </li>
+              <li className="space-x-2 items-center">
+                <CiMail className="green-small-icon" />
+                <span>
+                  <span className="font-medium">Email </span>
+                  <a className="green-link" href="mailto:sale@Nest.com">
+                    sale@Nest.com
+                  </a>
+                </span>
+              </li>
+              <li className="space-x-2 items-center">
+                <CiTimer className="green-small-icon" />
+                <span className="font-medium">Hours </span>
 
-              <span> 10:00 - 18:00, Mon - Sat </span>
-            </li>
-          </ul>
-        </div>
+                <span> 10:00 - 18:00, Mon - Sat </span>
+              </li>
+            </ul>
+          </div>
 
-        {/* first two columns of footer menu */}
-        <div className="flex justify-between">
-          {/* first column */}
-          <FooterMenu
-            menuHead="Company"
-            menuItems={[
-              { title: "About Us", url: "#" },
-              { title: "Privacy Policy", url: "#" },
-              { title: "Terms & Conditions", url: "#" },
-              { title: "Contact Us", url: "#" },
-              { title: "Support Center", url: "#" },
-              { title: "Careers", url: "#" },
-            ]}
-          />
-
-          {/* second column */}
-          <FooterMenu
-            menuHead="Account"
-            menuItems={[
-              { title: "About Us", url: "#" },
-              { title: "Privacy Policy", url: "#" },
-              { title: "Terms & Conditions", url: "#" },
-              { title: "Contact Us", url: "#" },
-              { title: "Support Center", url: "#" },
-              { title: "Careers", url: "#" },
-            ]}
-          />
-        </div>
-
-        {/* second two columns of footer menu */}
-        <div className="flex justify-between">
-          {/* first column */}
-          <FooterMenu
-            menuHead="Corporate"
-            menuItems={[
-              { title: "About Us", url: "#" },
-              { title: "Privacy Policy", url: "#" },
-              { title: "Terms & Conditions", url: "#" },
-              { title: "Contact Us", url: "#" },
-              { title: "Support Center", url: "#" },
-              { title: "Careers", url: "#" },
-            ]}
-          />
-
-          {/* second column */}
-          <FooterMenu
-            menuHead="Popular"
-            menuItems={[
-              { title: "About Us", url: "#" },
-              { title: "Privacy Policy", url: "#" },
-              { title: "Terms & Conditions", url: "#" },
-              { title: "Contact Us", url: "#" },
-              { title: "Support Center", url: "#" },
-              { title: "Careers", url: "#" },
-            ]}
-          />
-        </div>
-        {/* install app */}
-        <div>
-          <h3 className="text-3xl font-medium my-3">Install App</h3>
-          <p> From App Store or Google Play</p>
-          <div className="flex space-x-5 my-10">
-            <Image
-              className="move-up-transition"
-              src="/images/google-play.jpg"
-              alt="download android app"
-              width={202}
-              height={67}
+          {/* first two columns of footer menu */}
+          <div className="flex justify-between">
+            {/* first column */}
+            <FooterMenu
+              menuHead="Company"
+              menuItems={[
+                { title: "About Us", url: "#" },
+                { title: "Privacy Policy", url: "#" },
+                { title: "Terms & Conditions", url: "#" },
+                { title: "Contact Us", url: "#" },
+                { title: "Support Center", url: "#" },
+                { title: "Careers", url: "#" },
+              ]}
             />
-            <Image
-              className="move-up-transition"
-              src="/images/appstore.jpg"
-              alt="download android app"
-              width={202}
-              height={67}
+
+            {/* second column */}
+            <FooterMenu
+              menuHead="Account"
+              menuItems={[
+                { title: "About Us", url: "#" },
+                { title: "Privacy Policy", url: "#" },
+                { title: "Terms & Conditions", url: "#" },
+                { title: "Contact Us", url: "#" },
+                { title: "Support Center", url: "#" },
+                { title: "Careers", url: "#" },
+              ]}
             />
           </div>
-          <p>Secured Payment Gateways</p>
-          <Image
-            className="mt-5 move-up-transition"
-            src="/images/payment-method.png"
-            alt="payment gateway"
-            width={224}
-            height={32}
-          />
+
+          {/* second two columns of footer menu */}
+          <div className="flex justify-between">
+            {/* first column */}
+            <FooterMenu
+              menuHead="Corporate"
+              menuItems={[
+                { title: "About Us", url: "#" },
+                { title: "Privacy Policy", url: "#" },
+                { title: "Terms & Conditions", url: "#" },
+                { title: "Contact Us", url: "#" },
+                { title: "Support Center", url: "#" },
+                { title: "Careers", url: "#" },
+              ]}
+            />
+
+            {/* second column */}
+            <FooterMenu
+              menuHead="Popular"
+              menuItems={[
+                { title: "About Us", url: "#" },
+                { title: "Privacy Policy", url: "#" },
+                { title: "Terms & Conditions", url: "#" },
+                { title: "Contact Us", url: "#" },
+                { title: "Support Center", url: "#" },
+                { title: "Careers", url: "#" },
+              ]}
+            />
+          </div>
+          {/* install app */}
+          <div>
+            <h3 className="text-3xl font-medium my-3">Install App</h3>
+            <p> From App Store or Google Play</p>
+            <div className="flex space-x-5 my-10">
+              <Image
+                className="move-up-transition"
+                src="/images/google-play.jpg"
+                alt="download android app"
+                width={202}
+                height={67}
+              />
+              <Image
+                className="move-up-transition"
+                src="/images/appstore.jpg"
+                alt="download android app"
+                width={202}
+                height={67}
+              />
+            </div>
+            <p>Secured Payment Gateways</p>
+            <Image
+              className="mt-5 move-up-transition"
+              src="/images/payment-method.png"
+              alt="payment gateway"
+              width={224}
+              height={32}
+            />
+          </div>
         </div>
       </div>
-    </div>
+      <CopyWrite />
+    </>
   );
 };
 
