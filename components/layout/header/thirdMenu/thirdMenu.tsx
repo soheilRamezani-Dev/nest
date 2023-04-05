@@ -1,16 +1,10 @@
-import {
-  Children,
-  EventHandler,
-  MouseEventHandler,
-  useEffect,
-  useState,
-} from "react";
+import { useEffect, useState } from "react";
 import { BiCategory } from "react-icons/bi";
 import { RxChevronDown } from "react-icons/rx";
-import { TfiHeadphoneAlt } from "react-icons/tfi";
-import { SubMenuItem, Menu } from "../../types";
+import { Menu } from "../../../types";
 import ThreeLevelMenuItem from "./threeLevelMenuItem";
 import TwoLevelMenuItem from "./twoLevelMenuItem";
+import PhoneNumberButton from "../../../phoneNumberButton";
 
 const ThirdMenu = ({
   categoryMenu,
@@ -88,16 +82,11 @@ const ThirdMenu = ({
           </ul>
         </div>
         {/* phone */}
-        <div className="hidden xl:flex space-x-3 items-center">
-          {/* phone icon */}
-          <div>
-            <TfiHeadphoneAlt className=" w-8 h-8" />
-          </div>
-          {/* phone number */}
-          <div>
-            <h3 className="text-green-600 text-xl font-bold">09123456789</h3>
-            <p className="text-xs font-light">24/7 Support Center</p>
-          </div>
+        <div className="hidden xl:flex ">
+          <PhoneNumberButton
+            phone="09123456789"
+            description="24/7 Support Center"
+          />
         </div>
       </div>
     </div>

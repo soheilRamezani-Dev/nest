@@ -22,27 +22,53 @@ const ProductCartsSlider = forwardRef<Ref, Props>(
 
     const setSizeOfCarts = () => {
       const cartWidth =
-        Number(document.querySelector(".cart-slider li")?.clientWidth) + 15;
+        Number(
+          (document.querySelector(".cart-slider>li") as HTMLLIElement)
+            ?.clientWidth
+        ) + 2;
       setCartWidth(cartWidth);
       setContainerWidth(
-        Number(document.querySelector(".products-cart-slider")?.clientWidth)
+        Number(
+          (document.querySelector(".products-cart-slider") as HTMLDivElement)
+            ?.clientWidth
+        )
       );
       if (
-        products?.length * cartWidth <= containerWidth ||
-        Math.abs(leftPosition) + containerWidth + 12.4 <
-          products?.length * cartWidth
-      )
+        Math.abs(leftPosition) + containerWidth >
+          products?.length * (cartWidth + 16) - (cartWidth + 16) ||
+        products?.length * (cartWidth + 16) < containerWidth
+      ) {
         setLeftPosition(0);
+      } else if (leftPosition !== 0) {
+        // witch element is first in view port
+        const firstElementIndexInClientView = Math.floor(
+          Math.abs(leftPosition) / cartWidth
+        );
+        setLeftPosition(-firstElementIndexInClientView * cartWidth - 16);
+      }
     };
 
     useEffect(() => {
-      setSizeOfCarts();
+      const cartWidth =
+        Number(
+          (document.querySelector(".cart-slider>li") as HTMLLIElement)
+            ?.clientWidth
+        ) + 2;
+      setCartWidth(cartWidth);
+      setContainerWidth(
+        Number(
+          (document.querySelector(".products-cart-slider") as HTMLDivElement)
+            ?.clientWidth
+        )
+      );
       window.addEventListener("resize", setSizeOfCarts);
+
       return () => {
         window.removeEventListener("resize", setSizeOfCarts);
       };
+
       //setLeftPosition(0);
-    }, [products, leftPosition, containerWidth]);
+    }, [products, cartWidth, containerWidth]);
 
     useImperativeHandle(ref, () => ({
       lefttButonClickHandler: () => {
@@ -50,23 +76,22 @@ const ProductCartsSlider = forwardRef<Ref, Props>(
           Math.abs(leftPosition) >= cartWidth &&
           products?.length * cartWidth > containerWidth
         ) {
-          setLeftPosition((prev) => prev + cartWidth);
+          setLeftPosition((prev) => prev + cartWidth + 16);
         }
       },
       rightButonClickHandler: () => {
         if (
-          Math.abs(leftPosition) <
-            products?.length * cartWidth - 2 * cartWidth &&
-          products?.length * cartWidth > containerWidth
+          Math.abs(leftPosition) + containerWidth <
+            products?.length * (cartWidth + 16) - cartWidth &&
+          products?.length * (cartWidth + 16) > containerWidth
         ) {
-          setLeftPosition((prev) => prev - cartWidth);
+          setLeftPosition((prev) => prev - cartWidth - 16);
         }
       },
     }));
 
     return (
       <ul
-        onResize={setSizeOfCarts}
         style={{ transform: `translate(${leftPosition}px)` }}
         className={`cart-slider carts flex flex-nowrap relative top-0 left-0 ${
           activeCategory === category.id
