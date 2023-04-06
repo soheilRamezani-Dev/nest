@@ -1,7 +1,7 @@
 import { getDocs, query, collection, where } from "firebase/firestore";
 import { useEffect, useState } from "react";
-import database from "../../../firebase/firestore";
-import { Menu } from "../../types";
+import database from "../../../../firebase/firestore";
+import { Menu } from "../../../types";
 import SubMenuItem from "../subMenuItem";
 
 const MobileMenus = ({ mobileMenusItem }: { mobileMenusItem: Menu[] }) => {

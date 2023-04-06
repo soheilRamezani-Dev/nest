@@ -1,4 +1,4 @@
-import { Menu } from "../../types";
+import { Menu } from "../../../types";
 
 const TopBarNav = ({ topBarMenu }: { topBarMenu: Menu }) => {
   return (

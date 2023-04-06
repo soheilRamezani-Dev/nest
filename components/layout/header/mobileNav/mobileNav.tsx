@@ -10,7 +10,7 @@ import {
 } from "react-icons/fa";
 import { forwardRef, useImperativeHandle, useState } from "react";
 import MobileMenus from "./mobilMenus";
-import { Menu } from "../../types";
+import { Menu } from "../../../types";
 
 export type Ref = {
   toggleMobileMenu: () => void;
