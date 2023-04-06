@@ -9,7 +9,7 @@ nest is one of the most popular theme for wordpress. in this repo i implement th
 
 ## Getting Started
 
-### Dependencies
+### Dependencies (Stack)
 
 typescript | react | next.js | sass | firebase | tailwind | react-icons
 
